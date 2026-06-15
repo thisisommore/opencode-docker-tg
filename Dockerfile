@@ -11,4 +11,8 @@ RUN npm install -g @grinev/opencode-telegram-bot@latest && \
 
 USER bot
 
+COPY --chown=bot:bot entrypoint.sh /app/entrypoint.sh
+RUN chmod +x /app/entrypoint.sh
+
+ENTRYPOINT ["/app/entrypoint.sh"]
 CMD ["opencode-telegram", "start"]
