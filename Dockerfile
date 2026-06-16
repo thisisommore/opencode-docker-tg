@@ -7,7 +7,8 @@ ENV NODE_ENV=production
 
 RUN npm install -g @grinev/opencode-telegram-bot@latest && \
     adduser -D -h /app bot && \
-    chown bot:bot /app
+    chown bot:bot /app && \
+    chown -R bot:bot /usr/local/lib/node_modules/@grinev/opencode-telegram-bot
 
 USER bot
 
